@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		513A46E816FA66AE0093ED82 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513A46E716FA66AE0093ED82 /* Cocoa.framework */; };
+		513A46F216FA66AE0093ED82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513A46F016FA66AE0093ED82 /* InfoPlist.strings */; };
+		513A46F416FA66AE0093ED82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A46F316FA66AE0093ED82 /* main.m */; };
+		513A46F816FA66AE0093ED82 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 513A46F616FA66AE0093ED82 /* Credits.rtf */; };
+		513A46FB16FA66AE0093ED82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A46FA16FA66AE0093ED82 /* AppDelegate.m */; };
+		513A46FE16FA66AE0093ED82 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 513A46FC16FA66AE0093ED82 /* MainMenu.xib */; };
+		513A470616FA66AE0093ED82 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513A470516FA66AE0093ED82 /* SenTestingKit.framework */; };
+		513A470716FA66AE0093ED82 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513A46E716FA66AE0093ED82 /* Cocoa.framework */; };
+		513A470F16FA66AE0093ED82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513A470D16FA66AE0093ED82 /* InfoPlist.strings */; };
+		513A471216FA66AE0093ED82 /* BulkRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A471116FA66AE0093ED82 /* BulkRecorderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		513A470816FA66AE0093ED82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 513A46DC16FA66AE0093ED82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 513A46E316FA66AE0093ED82;
+			remoteInfo = BulkRecorder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		513A46E416FA66AE0093ED82 /* BulkRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BulkRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		513A46E716FA66AE0093ED82 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		513A46EA16FA66AE0093ED82 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		513A46EB16FA66AE0093ED82 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		513A46EC16FA66AE0093ED82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		513A46EF16FA66AE0093ED82 /* BulkRecorder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BulkRecorder-Info.plist"; sourceTree = "<group>"; };
+		513A46F116FA66AE0093ED82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		513A46F316FA66AE0093ED82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		513A46F516FA66AE0093ED82 /* BulkRecorder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BulkRecorder-Prefix.pch"; sourceTree = "<group>"; };
+		513A46F716FA66AE0093ED82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		513A46F916FA66AE0093ED82 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		513A46FA16FA66AE0093ED82 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		513A46FD16FA66AE0093ED82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		513A470416FA66AE0093ED82 /* BulkRecorderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BulkRecorderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		513A470516FA66AE0093ED82 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		513A470C16FA66AE0093ED82 /* BulkRecorderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BulkRecorderTests-Info.plist"; sourceTree = "<group>"; };
+		513A470E16FA66AE0093ED82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		513A471016FA66AE0093ED82 /* BulkRecorderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BulkRecorderTests.h; sourceTree = "<group>"; };
+		513A471116FA66AE0093ED82 /* BulkRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BulkRecorderTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		513A46E116FA66AE0093ED82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513A46E816FA66AE0093ED82 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		513A470016FA66AE0093ED82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513A470616FA66AE0093ED82 /* SenTestingKit.framework in Frameworks */,
+				513A470716FA66AE0093ED82 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		513A46DB16FA66AE0093ED82 = {
+			isa = PBXGroup;
+			children = (
+				513A46ED16FA66AE0093ED82 /* BulkRecorder */,
+				513A470A16FA66AE0093ED82 /* BulkRecorderTests */,
+				513A46E616FA66AE0093ED82 /* Frameworks */,
+				513A46E516FA66AE0093ED82 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		513A46E516FA66AE0093ED82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				513A46E416FA66AE0093ED82 /* BulkRecorder.app */,
+				513A470416FA66AE0093ED82 /* BulkRecorderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		513A46E616FA66AE0093ED82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				513A46E716FA66AE0093ED82 /* Cocoa.framework */,
+				513A470516FA66AE0093ED82 /* SenTestingKit.framework */,
+				513A46E916FA66AE0093ED82 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		513A46E916FA66AE0093ED82 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				513A46EA16FA66AE0093ED82 /* AppKit.framework */,
+				513A46EB16FA66AE0093ED82 /* CoreData.framework */,
+				513A46EC16FA66AE0093ED82 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		513A46ED16FA66AE0093ED82 /* BulkRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				513A46F916FA66AE0093ED82 /* AppDelegate.h */,
+				513A46FA16FA66AE0093ED82 /* AppDelegate.m */,
+				513A46FC16FA66AE0093ED82 /* MainMenu.xib */,
+				513A46EE16FA66AE0093ED82 /* Supporting Files */,
+			);
+			path = BulkRecorder;
+			sourceTree = "<group>";
+		};
+		513A46EE16FA66AE0093ED82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				513A46EF16FA66AE0093ED82 /* BulkRecorder-Info.plist */,
+				513A46F016FA66AE0093ED82 /* InfoPlist.strings */,
+				513A46F316FA66AE0093ED82 /* main.m */,
+				513A46F516FA66AE0093ED82 /* BulkRecorder-Prefix.pch */,
+				513A46F616FA66AE0093ED82 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		513A470A16FA66AE0093ED82 /* BulkRecorderTests */ = {
+			isa = PBXGroup;
+			children = (
+				513A471016FA66AE0093ED82 /* BulkRecorderTests.h */,
+				513A471116FA66AE0093ED82 /* BulkRecorderTests.m */,
+				513A470B16FA66AE0093ED82 /* Supporting Files */,
+			);
+			path = BulkRecorderTests;
+			sourceTree = "<group>";
+		};
+		513A470B16FA66AE0093ED82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				513A470C16FA66AE0093ED82 /* BulkRecorderTests-Info.plist */,
+				513A470D16FA66AE0093ED82 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		513A46E316FA66AE0093ED82 /* BulkRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 513A471516FA66AE0093ED82 /* Build configuration list for PBXNativeTarget "BulkRecorder" */;
+			buildPhases = (
+				513A46E016FA66AE0093ED82 /* Sources */,
+				513A46E116FA66AE0093ED82 /* Frameworks */,
+				513A46E216FA66AE0093ED82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BulkRecorder;
+			productName = BulkRecorder;
+			productReference = 513A46E416FA66AE0093ED82 /* BulkRecorder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		513A470316FA66AE0093ED82 /* BulkRecorderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 513A471816FA66AE0093ED82 /* Build configuration list for PBXNativeTarget "BulkRecorderTests" */;
+			buildPhases = (
+				513A46FF16FA66AE0093ED82 /* Sources */,
+				513A470016FA66AE0093ED82 /* Frameworks */,
+				513A470116FA66AE0093ED82 /* Resources */,
+				513A470216FA66AE0093ED82 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				513A470916FA66AE0093ED82 /* PBXTargetDependency */,
+			);
+			name = BulkRecorderTests;
+			productName = BulkRecorderTests;
+			productReference = 513A470416FA66AE0093ED82 /* BulkRecorderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		513A46DC16FA66AE0093ED82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Phusion;
+			};
+			buildConfigurationList = 513A46DF16FA66AE0093ED82 /* Build configuration list for PBXProject "BulkRecorder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 513A46DB16FA66AE0093ED82;
+			productRefGroup = 513A46E516FA66AE0093ED82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				513A46E316FA66AE0093ED82 /* BulkRecorder */,
+				513A470316FA66AE0093ED82 /* BulkRecorderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		513A46E216FA66AE0093ED82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513A46F216FA66AE0093ED82 /* InfoPlist.strings in Resources */,
+				513A46F816FA66AE0093ED82 /* Credits.rtf in Resources */,
+				513A46FE16FA66AE0093ED82 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		513A470116FA66AE0093ED82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513A470F16FA66AE0093ED82 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		513A470216FA66AE0093ED82 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		513A46E016FA66AE0093ED82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513A46F416FA66AE0093ED82 /* main.m in Sources */,
+				513A46FB16FA66AE0093ED82 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		513A46FF16FA66AE0093ED82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513A471216FA66AE0093ED82 /* BulkRecorderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		513A470916FA66AE0093ED82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 513A46E316FA66AE0093ED82 /* BulkRecorder */;
+			targetProxy = 513A470816FA66AE0093ED82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		513A46F016FA66AE0093ED82 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513A46F116FA66AE0093ED82 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		513A46F616FA66AE0093ED82 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513A46F716FA66AE0093ED82 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		513A46FC16FA66AE0093ED82 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513A46FD16FA66AE0093ED82 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		513A470D16FA66AE0093ED82 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513A470E16FA66AE0093ED82 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		513A471316FA66AE0093ED82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		513A471416FA66AE0093ED82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		513A471616FA66AE0093ED82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
+				INFOPLIST_FILE = "BulkRecorder/BulkRecorder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		513A471716FA66AE0093ED82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
+				INFOPLIST_FILE = "BulkRecorder/BulkRecorder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		513A471916FA66AE0093ED82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BulkRecorder.app/Contents/MacOS/BulkRecorder";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
+				INFOPLIST_FILE = "BulkRecorderTests/BulkRecorderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		513A471A16FA66AE0093ED82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BulkRecorder.app/Contents/MacOS/BulkRecorder";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
+				INFOPLIST_FILE = "BulkRecorderTests/BulkRecorderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		513A46DF16FA66AE0093ED82 /* Build configuration list for PBXProject "BulkRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				513A471316FA66AE0093ED82 /* Debug */,
+				513A471416FA66AE0093ED82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		513A471516FA66AE0093ED82 /* Build configuration list for PBXNativeTarget "BulkRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				513A471616FA66AE0093ED82 /* Debug */,
+				513A471716FA66AE0093ED82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		513A471816FA66AE0093ED82 /* Build configuration list for PBXNativeTarget "BulkRecorderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				513A471916FA66AE0093ED82 /* Debug */,
+				513A471A16FA66AE0093ED82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 513A46DC16FA66AE0093ED82 /* Project object */;
+}
