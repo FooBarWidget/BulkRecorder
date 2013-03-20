@@ -13,6 +13,35 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    recorder = [[UKSoundFileRecorder alloc] init];
+    NSMutableDictionary *format = [[NSMutableDictionary alloc] initWithDictionary:[UKSoundFileRecorder defaultOutputFormat]];
+    [format setObject:UKAudioOutputFileTypeM4A forKey:UKAudioOutputFileType];
+    [recorder setOutputFormat:format];
+    [self.nameField setDelegate:self];
+}
+
+- (IBAction)recordButtonClicked:(id)sender {
+    NSMutableString *filename = [[NSMutableString alloc] init];
+    [filename appendString:@"/Users/hongli/"];
+    [filename appendString:[self.nameField stringValue]];
+    [filename appendString:@".m4a"];
+    unlink([filename cStringUsingEncoding:NSUTF8StringEncoding]);
+    [recorder setOutputFilePath:filename];
+    [recorder start:self];
+    [self.recordButton setEnabled:FALSE];
+    [self.stopButton setEnabled:TRUE];
+}
+
+- (IBAction)stopButtonClicked:(id)sender {
+    [recorder stop:self];
+    [self.recordButton setEnabled:TRUE];
+    [self.stopButton setEnabled:FALSE];
+    [self.nameField selectText:self];
+}
+
+- (void)controlTextDidChange:(NSNotification *)aNotification {
+    BOOL enabled = [[self.nameField stringValue] length] > 0;
+    [self.recordButton setEnabled:enabled];
 }
 
 @end

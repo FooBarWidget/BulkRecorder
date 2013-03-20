@@ -17,6 +17,12 @@
 		513A470716FA66AE0093ED82 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513A46E716FA66AE0093ED82 /* Cocoa.framework */; };
 		513A470F16FA66AE0093ED82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513A470D16FA66AE0093ED82 /* InfoPlist.strings */; };
 		513A471216FA66AE0093ED82 /* BulkRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A471116FA66AE0093ED82 /* BulkRecorderTests.m */; };
+		513A472016FA70CE0093ED82 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513A471F16FA70CE0093ED82 /* CoreAudio.framework */; };
+		513A472316FA743B0093ED82 /* NSString+CarbonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A472216FA743B0093ED82 /* NSString+CarbonUtilities.m */; };
+		513A472616FA744A0093ED82 /* UKSoundFileRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A472516FA744A0093ED82 /* UKSoundFileRecorder.m */; };
+		513A472916FA746A0093ED82 /* UKAudioStreamBasicDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A472816FA746A0093ED82 /* UKAudioStreamBasicDescription.m */; };
+		513A472B16FA74750093ED82 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513A472A16FA74750093ED82 /* AudioToolbox.framework */; };
+		513A472D16FA76900093ED82 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513A472C16FA76900093ED82 /* AudioUnit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,16 @@
 		513A470E16FA66AE0093ED82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		513A471016FA66AE0093ED82 /* BulkRecorderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BulkRecorderTests.h; sourceTree = "<group>"; };
 		513A471116FA66AE0093ED82 /* BulkRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BulkRecorderTests.m; sourceTree = "<group>"; };
+		513A471C16FA66F00093ED82 /* BulkRecorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BulkRecorder.entitlements; sourceTree = "<group>"; };
+		513A471F16FA70CE0093ED82 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		513A472116FA743B0093ED82 /* NSString+CarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CarbonUtilities.h"; sourceTree = "<group>"; };
+		513A472216FA743B0093ED82 /* NSString+CarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CarbonUtilities.m"; sourceTree = "<group>"; };
+		513A472416FA744A0093ED82 /* UKSoundFileRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKSoundFileRecorder.h; sourceTree = "<group>"; };
+		513A472516FA744A0093ED82 /* UKSoundFileRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKSoundFileRecorder.m; sourceTree = "<group>"; };
+		513A472716FA746A0093ED82 /* UKAudioStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKAudioStreamBasicDescription.h; sourceTree = "<group>"; };
+		513A472816FA746A0093ED82 /* UKAudioStreamBasicDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKAudioStreamBasicDescription.m; sourceTree = "<group>"; };
+		513A472A16FA74750093ED82 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		513A472C16FA76900093ED82 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				513A472D16FA76900093ED82 /* AudioUnit.framework in Frameworks */,
+				513A472B16FA74750093ED82 /* AudioToolbox.framework in Frameworks */,
+				513A472016FA70CE0093ED82 /* CoreAudio.framework in Frameworks */,
 				513A46E816FA66AE0093ED82 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +113,9 @@
 		513A46E616FA66AE0093ED82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				513A472C16FA76900093ED82 /* AudioUnit.framework */,
+				513A472A16FA74750093ED82 /* AudioToolbox.framework */,
+				513A471F16FA70CE0093ED82 /* CoreAudio.framework */,
 				513A46E716FA66AE0093ED82 /* Cocoa.framework */,
 				513A470516FA66AE0093ED82 /* SenTestingKit.framework */,
 				513A46E916FA66AE0093ED82 /* Other Frameworks */,
@@ -114,6 +136,13 @@
 		513A46ED16FA66AE0093ED82 /* BulkRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				513A472716FA746A0093ED82 /* UKAudioStreamBasicDescription.h */,
+				513A472816FA746A0093ED82 /* UKAudioStreamBasicDescription.m */,
+				513A472416FA744A0093ED82 /* UKSoundFileRecorder.h */,
+				513A472516FA744A0093ED82 /* UKSoundFileRecorder.m */,
+				513A472116FA743B0093ED82 /* NSString+CarbonUtilities.h */,
+				513A472216FA743B0093ED82 /* NSString+CarbonUtilities.m */,
+				513A471C16FA66F00093ED82 /* BulkRecorder.entitlements */,
 				513A46F916FA66AE0093ED82 /* AppDelegate.h */,
 				513A46FA16FA66AE0093ED82 /* AppDelegate.m */,
 				513A46FC16FA66AE0093ED82 /* MainMenu.xib */,
@@ -263,6 +292,9 @@
 			files = (
 				513A46F416FA66AE0093ED82 /* main.m in Sources */,
 				513A46FB16FA66AE0093ED82 /* AppDelegate.m in Sources */,
+				513A472316FA743B0093ED82 /* NSString+CarbonUtilities.m in Sources */,
+				513A472616FA744A0093ED82 /* UKSoundFileRecorder.m in Sources */,
+				513A472916FA746A0093ED82 /* UKAudioStreamBasicDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +379,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -374,7 +406,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -386,6 +418,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
 				INFOPLIST_FILE = "BulkRecorder/BulkRecorder-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -398,6 +431,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
 				INFOPLIST_FILE = "BulkRecorder/BulkRecorder-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

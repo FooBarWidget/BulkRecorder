@@ -7,9 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "UKSoundFileRecorder.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate>
+{
+    UKSoundFileRecorder *recorder;
+}
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign, nonatomic) IBOutlet NSWindow *window;
+@property (assign, nonatomic) IBOutlet NSTextField *nameField;
+@property (assign, nonatomic) IBOutlet NSButton *recordButton;
+@property (assign, nonatomic) IBOutlet NSButton *stopButton;
+
+- (IBAction)recordButtonClicked:(id)sender;
+- (IBAction)stopButtonClicked:(id)sender;
 
 @end
