@@ -21,6 +21,9 @@
 }
 
 - (IBAction)recordButtonClicked:(id)sender {
+    if (![self.recordButton isEnabled]) {
+        return;
+    }
     NSMutableString *filename = [[NSMutableString alloc] init];
     [filename appendString:@"/Users/hongli/"];
     [filename appendString:[self.nameField stringValue]];
@@ -42,6 +45,10 @@
 - (void)controlTextDidChange:(NSNotification *)aNotification {
     BOOL enabled = [[self.nameField stringValue] length] > 0;
     [self.recordButton setEnabled:enabled];
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
 }
 
 @end
