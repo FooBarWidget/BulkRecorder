@@ -76,7 +76,7 @@ UInt32			UKAudioStreamFormatIDFromString( NSString* streamFmt )
 	if( [streamFmt length] != 4 )
 		return 0;
 	
-	if( CFStringGetBytes( (CFStringRef)streamFmt, CFRangeMake(0,4), kCFStringEncodingMacRoman, 0, false, (UInt8*) &buffer, 4, NULL ) != 4 )
+	if( CFStringGetBytes( (__bridge CFStringRef)streamFmt, CFRangeMake(0,4), kCFStringEncodingMacRoman, 0, false, (UInt8*) &buffer, 4, NULL ) != 4 )
 		return 0;	// Must be exactly 4 characters long.
 	
 	return EndianU32_NtoB(buffer);
