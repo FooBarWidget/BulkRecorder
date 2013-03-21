@@ -416,6 +416,7 @@
 		513A471616FA66AE0093ED82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BulkRecorder/BulkRecorder.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
@@ -429,6 +430,7 @@
 		513A471716FA66AE0093ED82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BulkRecorder/BulkRecorder.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BulkRecorder/BulkRecorder-Prefix.pch";
