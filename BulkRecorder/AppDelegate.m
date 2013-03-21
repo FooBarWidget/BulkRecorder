@@ -45,13 +45,24 @@
 
 - (IBAction)recordButtonClicked:(id)sender {
     state = RECORDING;
-    NSMutableString *filename = [[NSMutableString alloc] init];
-    [filename appendString:@"/Users/hongli/"];
+    
+    NSString *url = [[self.savePathControl URL] absoluteString];
+    NSString *dir = [url substringFromIndex:sizeof("file://localhost") - 1];
+    if ([dir characterAtIndex:0] != '/') {
+        [NSAlert alertWithMessageText:@"Cannot parse NSPathControl URL." defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"The URL is %@",
+            url];
+        return;
+    }
+    
+    NSMutableString *filename = [[NSMutableString alloc] initWithString:dir];
+    [filename appendString:@"/"];
     [filename appendString:[self.nameField stringValue]];
     [filename appendString:@".m4a"];
+    
     unlink([filename cStringUsingEncoding:NSUTF8StringEncoding]);
     [recorder setOutputFilePath:filename];
     [recorder start:self];
+    
     [self.recordButton setEnabled:FALSE];
     [self.stopButton setEnabled:TRUE];
 }
