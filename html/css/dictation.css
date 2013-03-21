@@ -1,0 +1,35 @@
+#list_panel .toolbar {
+	margin-bottom: 8px;
+}
+
+#list_panel ul {
+	list-style: none;
+	margin: 0;
+}
+
+.color-on-hover:hover,
+#list_panel li:hover {
+	background: #d5d5f5;
+	padding: 1px 6px 1px 6px;
+	margin: -1px -6px -1px -6px;
+	border-radius: 4px;
+}
+
+#list_panel li input,
+#list_panel li span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.word {
+	cursor: pointer;
+	display: block;
+}
+
+.word:hover {
+	text-decoration: none;
+}
+
+#practice {
+	text-align: center;
+}
