@@ -49,8 +49,12 @@
     NSString *url = [[self.savePathControl URL] absoluteString];
     NSString *dir = [url substringFromIndex:sizeof("file://localhost") - 1];
     if ([dir characterAtIndex:0] != '/') {
-        [NSAlert alertWithMessageText:@"Cannot parse NSPathControl URL." defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"The URL is %@",
-            url];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Cannot parse NSPathControl URL."
+                                         defaultButton:nil
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@"The URL is %@", url];
+        [alert runModal];
         return;
     }
     
