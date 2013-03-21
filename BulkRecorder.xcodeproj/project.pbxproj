@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		512DC82716FB0550009CE758 /* MIT-LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MIT-LICENSE"; sourceTree = "<group>"; };
 		513A46E416FA66AE0093ED82 /* BulkRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BulkRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		513A46E716FA66AE0093ED82 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		513A46EA16FA66AE0093ED82 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -94,6 +95,7 @@
 		513A46DB16FA66AE0093ED82 = {
 			isa = PBXGroup;
 			children = (
+				512DC82716FB0550009CE758 /* MIT-LICENSE */,
 				513A46ED16FA66AE0093ED82 /* BulkRecorder */,
 				513A470A16FA66AE0093ED82 /* BulkRecorderTests */,
 				513A46E616FA66AE0093ED82 /* Frameworks */,
@@ -486,6 +488,7 @@
 				513A471716FA66AE0093ED82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		513A471816FA66AE0093ED82 /* Build configuration list for PBXNativeTarget "BulkRecorderTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +497,7 @@
 				513A471A16FA66AE0093ED82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
