@@ -66,8 +66,24 @@
     state = WAITING_FOR_RECORD;
 }
 
+static BOOL validateName(const NSString *name) {
+    NSUInteger i, len = [name length];
+    for (i = 0; i < len; i++) {
+        unichar ch = [name characterAtIndex:i];
+        BOOL ok = (ch >= 'a' && ch <= 'z')
+         || (ch >= 'A' && ch <= 'Z')
+         || (ch >= '0' && ch <= '9')
+         || ch == ' ';
+        if (!ok) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (void)controlTextDidChange:(NSNotification *)aNotification {
-    BOOL enabled = [[self.nameField stringValue] length] > 0;
+    NSString *name = [self.nameField stringValue];
+    BOOL enabled = [name length] > 0 && validateName(name);
     [self.recordButton setEnabled:enabled];
 }
 
