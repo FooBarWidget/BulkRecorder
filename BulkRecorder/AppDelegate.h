@@ -11,6 +11,11 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate>
 {
+    enum {
+        WAITING_FOR_RECORD,
+        RECORDING,
+        STOPPING_RECORDING
+    } state;
     UKSoundFileRecorder *recorder;
 }
 
@@ -19,6 +24,7 @@
 @property (assign, nonatomic) IBOutlet NSButton *recordButton;
 @property (assign, nonatomic) IBOutlet NSButton *stopButton;
 
+- (IBAction)nameFieldActivated:(id)sender;
 - (IBAction)recordButtonClicked:(id)sender;
 - (IBAction)stopButtonClicked:(id)sender;
 
