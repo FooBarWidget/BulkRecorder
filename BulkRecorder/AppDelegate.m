@@ -7,17 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#include <sys/types.h>
+#include <pwd.h>
+#include <unistd.h>
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
-    recorder = [[UKSoundFileRecorder alloc] init];
-    state = WAITING_FOR_RECORD;
     NSMutableDictionary *format = [[NSMutableDictionary alloc] initWithDictionary:[UKSoundFileRecorder defaultOutputFormat]];
     [format setObject:UKAudioOutputFileTypeM4A forKey:UKAudioOutputFileType];
+    
+    state = WAITING_FOR_RECORD;
+    recorder = [[UKSoundFileRecorder alloc] init];
     [recorder setOutputFormat:format];
+    
+    struct passwd *passwd = getpwuid(getuid());
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"file://localhost"];
+    [url appendString:[[NSString alloc] initWithUTF8String:passwd->pw_dir]];
+    [self.savePathControl setURL: [[NSURL alloc] initWithString:url]];
+    
+    [self.savePathControl setDelegate:self];
     [self.nameField setDelegate:self];
 }
 
@@ -59,6 +69,10 @@
 - (void)controlTextDidChange:(NSNotification *)aNotification {
     BOOL enabled = [[self.nameField stringValue] length] > 0;
     [self.recordButton setEnabled:enabled];
+}
+
+- (void)pathControl:(NSPathControl *)pathControl willDisplayOpenPanel:(NSOpenPanel *)openPanel {
+    [openPanel setCanCreateDirectories:YES];
 }
 
 @end

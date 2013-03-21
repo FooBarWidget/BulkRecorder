@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "UKSoundFileRecorder.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSTextFieldDelegate, NSPathControlDelegate>
 {
     enum {
         WAITING_FOR_RECORD,
@@ -20,6 +20,7 @@
 }
 
 @property (assign, nonatomic) IBOutlet NSWindow *window;
+@property (assign, nonatomic) IBOutlet NSPathControl *savePathControl;
 @property (assign, nonatomic) IBOutlet NSTextField *nameField;
 @property (assign, nonatomic) IBOutlet NSButton *recordButton;
 @property (assign, nonatomic) IBOutlet NSButton *stopButton;
