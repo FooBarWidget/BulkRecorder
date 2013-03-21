@@ -7,14 +7,20 @@
 //
 
 #import "AppDelegate.h"
-#include <sys/types.h>
-#include <pwd.h>
-#include <unistd.h>
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSOpenPanel *openPanel = [[NSOpenPanel alloc] init];
+    [openPanel setCanCreateDirectories:YES];
+    [openPanel setCanChooseFiles:NO];
+    [openPanel setCanChooseDirectories:YES];
+    [openPanel setTitle:@"Choose a location to save files to"];
+    if ([openPanel runModal] == NSFileHandlingPanelCancelButton) {
+        [NSApp terminate:nil];
+    }
+    
     NSMutableDictionary *format = [[NSMutableDictionary alloc] initWithDictionary:[UKSoundFileRecorder defaultOutputFormat]];
     [format setObject:UKAudioOutputFileTypeM4A forKey:UKAudioOutputFileType];
     
@@ -22,11 +28,7 @@
     recorder = [[UKSoundFileRecorder alloc] init];
     [recorder setOutputFormat:format];
     
-    struct passwd *passwd = getpwuid(getuid());
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"file://localhost"];
-    [url appendString:[[NSString alloc] initWithUTF8String:passwd->pw_dir]];
-    [self.savePathControl setURL: [[NSURL alloc] initWithString:url]];
-    
+    [self.savePathControl setURL:[openPanel URL]];
     [self.savePathControl setDelegate:self];
     [self.nameField setDelegate:self];
 }
