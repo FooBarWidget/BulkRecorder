@@ -59,7 +59,10 @@
 								<button class="btn" ng-click="dictationSession.showCurrentWord(true)">Show word</button>
 								<button class="btn btn-primary" style="margin-left: 2em" ng-click="nextDictationWord()">Next word &raquo;</button>
 							</p>
-							<p ng-show="dictationSession.showCurrentWord()">{{dictationSession.getCurrentWord().text}}</p>
+							<div ng-show="dictationSession.showCurrentWord()">
+								<h2>"{{dictationSession.getCurrentWord().text}}"</h2>
+								<p><small>From: {{dictationSession.getCurrentWord().list.name}}</small></p>
+							</div>
 						</div>
 					</div>
 				</div>

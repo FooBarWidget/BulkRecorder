@@ -6,6 +6,14 @@ function AppCtrl($scope, $window) {
 	$scope.words = [];
 	$scope.disableDictationButton = true;
 
+	function indexAllWords() {
+		angular.forEach($scope.lists, function(list) {
+			angular.forEach(list.words, function(word) {
+				word.list = list;
+			});
+		});
+	}
+
 	$scope.selectAll = function(val) {
 		for (var i = 0; i < $scope.lists.length; i++) {
 			$scope.lists[i].checked = val;
@@ -58,6 +66,7 @@ function AppCtrl($scope, $window) {
 		$scope.dictationSession.end();
 	}
 
+	indexAllWords();
 	$scope.selectAll(true);
 }
 
