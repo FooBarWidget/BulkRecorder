@@ -3,7 +3,8 @@ var app = angular.module('app', []);
 function AppCtrl($scope, $window) {
 	$scope.lists = $window.wordLists;
 	$scope.activeTab = 'practice';
-	$scope.words = [];
+	$scope.selectedLists = [];
+	$scope.selectedWords = [];
 	$scope.disableDictationButton = true;
 
 	function indexAllWords() {
@@ -14,29 +15,32 @@ function AppCtrl($scope, $window) {
 		});
 	}
 
-	$scope.selectAll = function(val) {
-		for (var i = 0; i < $scope.lists.length; i++) {
-			$scope.lists[i].checked = val;
-		}
+	$scope.selectAllLists = function(val) {
+		angular.forEach($scope.lists, function(list) {
+			list.selected = val;
+		});
+		$scope.listSelectionChanged();
+	}
+
+	$scope.deselectList = function(list) {
+		list.selected = false;
 		$scope.listSelectionChanged();
 	}
 
 	$scope.listSelectionChanged = function() {
-		$scope.gatherWords();
 		$scope.stopDictation();
-	}
 
-	$scope.gatherWords = function() {
+		var lists = [];
 		var words = [];
-		var i;
-
-		for (i = 0; i < $scope.lists.length; i++) {
-			if ($scope.lists[i].checked) {
-				words = words.concat($scope.lists[i].words);
+		angular.forEach($scope.lists, function(list) {
+			if (list.selected) {
+				lists.push(list);
+				words = words.concat(list.words);
 			}
-		}
+		});
 		
-		$scope.words = words;
+		$scope.selectedLists = lists;
+		$scope.selectedWords = words;
 		$scope.disableDictationButton = words.length == 0;
 	}
 
@@ -49,7 +53,7 @@ function AppCtrl($scope, $window) {
 	}
 
 	$scope.startDictation = function() {
-		$scope.dictationSession = new DictationSession($scope.words);
+		$scope.dictationSession = new DictationSession($scope.selectedWords);
 		$scope.dictating = true;
 	}
 
@@ -67,7 +71,7 @@ function AppCtrl($scope, $window) {
 	}
 
 	indexAllWords();
-	$scope.selectAll(true);
+	$scope.selectAllLists(true);
 }
 
 function DictationSession(words) {

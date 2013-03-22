@@ -14,13 +14,13 @@
 			<div class="span4" id="list_panel">
 				<div class="well">
 					<div class="toolbar">
-						<button class="btn btn-mini" ng-click="selectAll(true)">Select all</button>
-						<button class="btn btn-mini" ng-click="selectAll(false)">Select none</button>
+						<button class="btn btn-mini" ng-click="selectAllLists(true)">Select all</button>
+						<button class="btn btn-mini" ng-click="selectAllLists(false)">Select none</button>
 					</div>
 					<ul>
 						<li ng-repeat="list in lists">
 							<label>
-								<input type="checkbox" ng-model="list.checked" ng-change="listSelectionChanged()">
+								<input type="checkbox" ng-model="list.selected" ng-change="listSelectionChanged()">
 								<span>{{list.name}}</span>
 							</label>
 						</li>
@@ -36,7 +36,7 @@
 
 				<div id="practice" ng-show="activeTab == 'practice'">
 					<div ng-show="!dictating">
-						<h1>{{words.length}} words</h1>
+						<h1>{{selectedWords.length}} words</h1>
 						<p><button class="btn btn-large btn-primary" ng-disabled="disableDictationButton" ng-click="startDictation()">Start practice</button></p>
 					</div>
 					<div ng-show="dictating">
@@ -68,14 +68,17 @@
 				</div>
 				
 				<div id="overview" ng-show="activeTab == 'overview'">
-					<ng-switch on="words.length > 0">
+					<ng-switch on="selectedLists.length > 0">
 						<div ng-switch-when="true">
-							<a ng-repeat="word in words" class="word color-on-hover" ng-click="playAudio(word.url)">
-								<span>{{word.text}}</span>
-							</a>
+							<div ng-repeat="list in selectedLists">
+								<h4>{{list.name}} <span class="close" ng-click="deselectList(list)">&times;</span></h4>
+								<a ng-repeat="word in list.words" class="word color-on-hover" ng-click="playAudio(word.url)">
+									<span>{{word.text}}</span>
+								</a>
+							</div>
 						</div>
 						<div ng-switch-when="false">
-							Please select at least 1 dictation list on the left.
+							Please select at least 1 word list on the left.
 						</div>
 					</ng-switch>
 				</div>
