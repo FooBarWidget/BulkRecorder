@@ -81,7 +81,7 @@ static BOOL validateName(const NSString *name) {
         BOOL ok = (ch >= 'a' && ch <= 'z')
          || (ch >= 'A' && ch <= 'Z')
          || (ch >= '0' && ch <= '9')
-         || ch == ' ';
+         || ch == ' ' || ch == '?' || ch == ',';
         if (!ok) {
             return NO;
         }
@@ -99,9 +99,10 @@ static BOOL validateName(const NSString *name) {
 {
     if (commandSelector == @selector(insertNewline:)) {
         [self nameFieldActivated:self];
+        return YES;
+    } else {
+        return NO;
     }
-    NSLog(@"Selector = %@", NSStringFromSelector( commandSelector ) );
-    return NO;
 }
 
 - (void)pathControl:(NSPathControl *)pathControl willDisplayOpenPanel:(NSOpenPanel *)openPanel {

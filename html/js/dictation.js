@@ -1,23 +1,7 @@
 var app = angular.module('app', []);
 
-function AppCtrl($scope, $http) {
-	$scope.lists = [
-		{
-			name: 'Getallen',
-			words: [
-				{ text: '0 Nul', url: 'nul.m4a' },
-				{ text: '1 Een', url: 'een.m4a' },
-				{ text: '2 Twee', url: 'twee.m4a' },
-				{ text: '3 Drie', url: 'drie.m4a' }
-			]
-		},
-		{
-			name: 'Test',
-			words: [
-				{ text: '4 Vier', url: 'nul.m4a' }
-			]
-		},
-	];
+function AppCtrl($scope, $window) {
+	$scope.lists = $window.wordLists;
 	$scope.activeTab = 'practice';
 	$scope.words = [];
 	$scope.disableDictationButton = true;
