@@ -58,7 +58,7 @@
     [recorder setOutputFilePath:filename];
     [recorder start:self];
     
-    [self.nameField setEnabled:FALSE];
+    [self.nameField setEditable:FALSE];
     [self.recordButton setEnabled:FALSE];
     [self.stopButton setEnabled:TRUE];
 }
@@ -66,7 +66,7 @@
 - (IBAction)stopButtonClicked:(id)sender {
     state = STOPPING_RECORDING;
     [recorder stop:self];
-    [self.nameField setEnabled:TRUE];
+    [self.nameField setEditable:TRUE];
     // Causes nameFieldActivated: to be called.]
     [self.nameField selectText:self];
     [self.recordButton setEnabled:TRUE];
