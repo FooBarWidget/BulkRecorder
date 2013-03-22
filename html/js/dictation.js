@@ -69,7 +69,11 @@ function DictationSession(words) {
 
 	this.words = shuffle(words);
 	this.index = 0;
-	this.dictatedWords = [];
+	if (this.words.length == 0) {
+		this.dicatedWords = [];
+	} else {
+		this.dictatedWords = [this.words[0]];
+	}
 }
 
 DictationSession.prototype.getCurrentWord = function() {
@@ -92,10 +96,7 @@ DictationSession.prototype.total = function() {
 }
 
 DictationSession.prototype.end = function() {
-	if (!this.ended()) {
-		this.next();
-		this.index = this.words.length;
-	}
+	this.index = this.words.length;
 }
 
 DictationSession.prototype.ended = function() {
