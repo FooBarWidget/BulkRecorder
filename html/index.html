@@ -42,9 +42,12 @@
 					<div ng-show="dictating">
 						<div ng-show="dictationSession.ended()">
 							<p>Covered {{dictationSession.dictatedWords.length}} words in this practice session:</p>
-							<a ng-repeat="word in dictationSession.dictatedWords" class="word color-on-hover" ng-click="playAudio(word.url)">
-								<span>{{word.text}}</span>
-							</a>
+							<p>
+								<a ng-repeat="word in dictationSession.dictatedWords" class="word color-on-hover" ng-click="playAudio(word.url)">
+									<span>{{word.text}}</span>
+								</a>
+							</p>
+							<p><button class="btn" ng-click="stopDictation()">OK</button></p>
 						</div>
 						<div id="running_dictation_session" ng-show="!dictationSession.ended()">
 							<h1>{{dictationSession.index + 1}} / {{dictationSession.total()}}</h1>
