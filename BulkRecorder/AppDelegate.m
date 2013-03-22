@@ -48,18 +48,7 @@
 - (IBAction)recordButtonClicked:(id)sender {
     state = RECORDING;
     
-    NSString *url = [[self.savePathControl URL] absoluteString];
-    NSString *dir = [url substringFromIndex:sizeof("file://localhost") - 1];
-    if ([dir characterAtIndex:0] != '/') {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Cannot parse NSPathControl URL."
-                                         defaultButton:nil
-                                       alternateButton:nil
-                                           otherButton:nil
-                             informativeTextWithFormat:@"The URL is %@", url];
-        [alert runModal];
-        return;
-    }
-    
+    NSString *dir = [[self.savePathControl URL] path];
     NSMutableString *filename = [[NSMutableString alloc] initWithString:dir];
     [filename appendString:@"/"];
     [filename appendString:[self.nameField stringValue]];
@@ -69,6 +58,7 @@
     [recorder setOutputFilePath:filename];
     [recorder start:self];
     
+    [self.nameField setEnabled:FALSE];
     [self.recordButton setEnabled:FALSE];
     [self.stopButton setEnabled:TRUE];
 }
@@ -76,7 +66,8 @@
 - (IBAction)stopButtonClicked:(id)sender {
     state = STOPPING_RECORDING;
     [recorder stop:self];
-    // Causes nameFieldActivated: to be called.
+    [self.nameField setEnabled:TRUE];
+    // Causes nameFieldActivated: to be called.]
     [self.nameField selectText:self];
     [self.recordButton setEnabled:TRUE];
     [self.stopButton setEnabled:FALSE];
