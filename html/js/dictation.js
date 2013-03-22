@@ -57,7 +57,7 @@ function AppCtrl($scope, $http) {
 	}
 
 	$scope.startDictation = function() {
-		window.dictationSession = $scope.dictationSession = new DictationSession($scope.words);
+		$scope.dictationSession = new DictationSession($scope.words);
 		$scope.dictating = true;
 	}
 
