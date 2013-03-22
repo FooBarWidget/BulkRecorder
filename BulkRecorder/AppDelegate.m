@@ -95,6 +95,15 @@ static BOOL validateName(const NSString *name) {
     [self.recordButton setEnabled:enabled];
 }
 
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector
+{
+    if (commandSelector == @selector(insertNewline:)) {
+        [self nameFieldActivated:self];
+    }
+    NSLog(@"Selector = %@", NSStringFromSelector( commandSelector ) );
+    return NO;
+}
+
 - (void)pathControl:(NSPathControl *)pathControl willDisplayOpenPanel:(NSOpenPanel *)openPanel {
     [openPanel setCanCreateDirectories:YES];
 }

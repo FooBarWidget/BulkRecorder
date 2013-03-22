@@ -1218,14 +1218,6 @@
 					<int key="connectionID">614</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">nameFieldActivated:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="826260682"/>
-					</object>
-					<int key="connectionID">624</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">savePathControl</string>
 						<reference key="source" ref="976324537"/>
