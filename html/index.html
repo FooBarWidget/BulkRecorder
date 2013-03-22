@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/dictation.css">
 </head>
 <body>
-	<div class="container" ng-app="app" ng-controller="AppCtrl">
+	<div class="container ng-cloak" ng-app="app" ng-controller="AppCtrl">
 		<div class="row">
 
 			<div class="span4" id="list_panel">
@@ -60,9 +60,16 @@
 				</div>
 				
 				<div id="overview" ng-show="activeTab == 'overview'">
-					<a ng-repeat="word in words" class="word color-on-hover" ng-click="playAudio(word.url)">
-						<span>{{word.text}}</span>
-					</a>
+					<ng-switch on="words.length > 0">
+						<div ng-switch-when="true">
+							<a ng-repeat="word in words" class="word color-on-hover" ng-click="playAudio(word.url)">
+								<span>{{word.text}}</span>
+							</a>
+						</div>
+						<div ng-switch-when="false">
+							Please select at least 1 dictation list on the left.
+						</div>
+					</ng-switch>
 				</div>
 			</div>
 
