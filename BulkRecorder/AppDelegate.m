@@ -107,6 +107,8 @@ static BOOL validateName(const NSString *name) {
 
 - (void)pathControl:(NSPathControl *)pathControl willDisplayOpenPanel:(NSOpenPanel *)openPanel {
     [openPanel setCanCreateDirectories:YES];
+    [openPanel setCanChooseDirectories:YES];
+    [openPanel setCanChooseFiles:NO];
 }
 
 @end

@@ -74,6 +74,7 @@ function DictationSession(words) {
 	} else {
 		this.dictatedWords = [this.words[0]];
 	}
+	this._showCurrentWord = false;
 }
 
 DictationSession.prototype.getCurrentWord = function() {
@@ -87,7 +88,16 @@ DictationSession.prototype.next = function() {
 	} else {
 		this.index++;
 		this.dictatedWords.push(this.words[this.index]);
+		this._showCurrentWord = false;
 		return true;
+	}
+}
+
+DictationSession.prototype.showCurrentWord = function(val) {
+	if (arguments.length > 0) {
+		this._showCurrentWord = val;
+	} else {
+		return this._showCurrentWord;
 	}
 }
 

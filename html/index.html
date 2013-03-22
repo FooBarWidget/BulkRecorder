@@ -55,9 +55,11 @@
 								<audio ng-src="{{dictationSession.getCurrentWord().url}}" controls autoplay preload></audio>
 							</div>
 							<p style="margin-top: 1.5em">
-								<button class="btn" ng-click="endDictation()">End dictation</button>
+								<button class="btn" ng-click="endDictation()">End practice</button>
+								<button class="btn" ng-click="dictationSession.showCurrentWord(true)">Show word</button>
 								<button class="btn btn-primary" style="margin-left: 2em" ng-click="nextDictationWord()">Next word &raquo;</button>
 							</p>
+							<p ng-show="dictationSession.showCurrentWord()">{{dictationSession.getCurrentWord().text}}</p>
 						</div>
 					</div>
 				</div>
