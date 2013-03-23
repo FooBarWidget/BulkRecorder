@@ -13,7 +13,7 @@ def split_filename(filename)
 	filename.sub(/^#{Regexp.escape DIR}\//, '').split('/', 2)
 end
 
-files = `find -L "#{DIR}" -name '*.m4a'`.split("\n").map{ |x| x.sub(/^.\//, '') }
+files = `find -L "#{DIR}" -name '*.aac'`.split("\n").map{ |x| x.sub(/^.\//, '') }
 files.sort! do |a, b|
 	naturalize(a) <=> naturalize(b)
 end
@@ -24,7 +24,7 @@ end
 result = []
 groups.each_pair do |list_name, filenames|
 	words = filenames.map do |filename|
-		{ :text => split_filename(filename)[1].sub(/\.m4a$/, ''),
+		{ :text => split_filename(filename)[1].sub(/\.aac$/, ''),
 		  :url => URI.escape(filename).gsub('?', '%3F')
 		}
 	end
