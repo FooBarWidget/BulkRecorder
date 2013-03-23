@@ -76,14 +76,14 @@
 							<p><input ng-model="search.text" style="width: 100%" autofocus placeholder="Enter word to search..."></p>
 
 							<div ng-show="isPresent(search.text)">
-								<a ng-repeat="word in words | filter:search" class="word color-on-hover" ng-click="playAudio(word.url)">
+								<a ng-repeat="word in words | filter:search" class="word color-on-hover" on-touch="playAudio(word.url)">
 									<span>{{word.text}}</span>
 								</a>
 							</div>
 							<div ng-show="!isPresent(search.text)">
 								<div ng-repeat="list in selectedLists">
 									<h4>{{list.name}} <span class="close" ng-click="deselectList(list)">&times;</span></h4>
-									<a ng-repeat="word in list.words" class="word color-on-hover" ng-click="playAudio(word.url)">
+									<a ng-repeat="word in list.words" class="word color-on-hover" on-touch="playAudio(word.url)">
 										<span>{{word.text}}</span>
 									</a>
 								</div>
