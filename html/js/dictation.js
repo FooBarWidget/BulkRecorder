@@ -88,8 +88,9 @@ function AppCtrl($scope, $window) {
 	}
 
 	$scope.nextDictationWord = function() {
-		$scope.dictationSession.next();
-		$scope.reloadPlayer($scope.dictationSession.getCurrentWord());
+		if ($scope.dictationSession.next()) {
+			$scope.reloadPlayer($scope.dictationSession.getCurrentWord());
+		}
 	}
 
 	$scope.endDictation = function() {
@@ -104,6 +105,29 @@ function AppCtrl($scope, $window) {
 		setTimeout(function() {
 			audio[0].play();
 		}, 10);
+
+		// Play 3 times. 3 seconds after the last time, go to next word.
+		var i = 0;
+		audio.bind('ended', function() {
+			if (!$scope.dictating || !audio[0].parentElement) {
+				return;
+			}
+
+			i++;
+			if (i < 3) {
+				setTimeout(function() {
+					if ($scope.dictating && audio[0].parentElement) {
+						audio[0].play();
+					}
+				}, 2000);
+			} else {
+				setTimeout($scope.dictating && function() {
+					$scope.$apply(function() {
+						$scope.nextDictationWord();
+					});
+				}, 3000);
+			}
+		});
 	}
 
 	$scope.isPresent = function(str) {
