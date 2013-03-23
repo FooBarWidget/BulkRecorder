@@ -12,7 +12,7 @@ function AppCtrl($scope, $window) {
 		angular.forEach($scope.lists, function(list) {
 			angular.forEach(list.words, function(word) {
 				word.list = list;
-				word.oggUrl = word.url.replace(/\.m4a$/, '.ogg');
+				word.oggUrl = word.url.replace(/\.aac$/, '.ogg');
 				$scope.words.push(word);
 			});
 		});
@@ -52,9 +52,9 @@ function AppCtrl($scope, $window) {
 			$scope.currentAudio.pause();
 		}
 		var audio = $('<audio>');
-		var oggUrl = url.replace(/\.m4a$/, '.ogg');
+		var oggUrl = url.replace(/\.aac$/, '.ogg');
 		$('<source>').attr({ src: oggUrl, type: 'audio/ogg' }).appendTo(audio);
-		$('<source>').attr({ src: url, type: 'audio/mp4a-latm' }).appendTo(audio);
+		$('<source>').attr({ src: url, type: 'audio/aac' }).appendTo(audio);
 		$scope.currentAudio = audio[0];
 		$scope.currentAudio.play();
 	}
