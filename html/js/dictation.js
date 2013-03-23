@@ -51,8 +51,8 @@ function AppCtrl($scope, $window) {
 		}
 		var audio = $('<audio>');
 		var oggUrl = url.replace(/\.m4a$/, '.ogg');
-		$('<source>').attr({ src: url, type: 'audio/mp4a-latm' }).appendTo(audio);
 		$('<source>').attr({ src: oggUrl, type: 'audio/ogg' }).appendTo(audio);
+		$('<source>').attr({ src: url, type: 'audio/mp4a-latm' }).appendTo(audio);
 		$scope.currentAudio = audio[0];
 		$scope.currentAudio.play();
 	}
