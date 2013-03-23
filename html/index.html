@@ -52,7 +52,10 @@
 						<div id="running_dictation_session" ng-show="!dictationSession.ended()">
 							<h1>{{dictationSession.index + 1}} / {{dictationSession.total()}}</h1>
 							<div>
-								<audio ng-src="{{dictationSession.getCurrentWord().url}}" controls autoplay preload></audio>
+								<audio id="player" controls autoplay preload>
+									<source src="{{dictationSession.getCurrentWord().url}}" type="audio/mp4a-latm">
+									<source src="{{dictationSession.getCurrentWord().oggUrl}}" type="audio/ogg">
+								</audio>
 							</div>
 							<p style="margin-top: 1.5em">
 								<button class="btn" ng-click="endDictation()">End practice</button>
@@ -87,6 +90,7 @@
 		</div>
 	</div>
 	<script src="js/angular.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/dictation.js"></script>
 	<script src="js/words.js"></script>
 </body>

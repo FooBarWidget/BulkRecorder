@@ -11,6 +11,7 @@ function AppCtrl($scope, $window) {
 		angular.forEach($scope.lists, function(list) {
 			angular.forEach(list.words, function(word) {
 				word.list = list;
+				word.oggUrl = word.url.replace(/\.m4a$/, '.ogg');
 			});
 		});
 	}
@@ -48,13 +49,18 @@ function AppCtrl($scope, $window) {
 		if ($scope.currentAudio) {
 			$scope.currentAudio.pause();
 		}
-		$scope.currentAudio = new Audio(url);
+		var audio = $('<audio>');
+		var oggUrl = url.replace(/\.m4a$/, '.ogg');
+		$('<source>').attr({ src: url, type: 'audio/mp4a-latm' }).appendTo(audio);
+		$('<source>').attr({ src: oggUrl, type: 'audio/ogg' }).appendTo(audio);
+		$scope.currentAudio = audio[0];
 		$scope.currentAudio.play();
 	}
 
 	$scope.startDictation = function() {
 		$scope.dictationSession = new DictationSession($scope.selectedWords);
 		$scope.dictating = true;
+		$scope.reloadPlayer();
 	}
 
 	$scope.stopDictation = function() {
@@ -64,10 +70,18 @@ function AppCtrl($scope, $window) {
 
 	$scope.nextDictationWord = function() {
 		$scope.dictationSession.next();
+		$scope.reloadPlayer();
 	}
 
 	$scope.endDictation = function() {
 		$scope.dictationSession.end();
+	}
+
+	$scope.reloadPlayer = function() {
+		setTimeout(function() {
+			$scope.$digest();
+			$('#player').load();
+		}, 10);
 	}
 
 	indexAllWords();
