@@ -2,6 +2,7 @@ var app = angular.module('app', []);
 
 function AppCtrl($scope, $window) {
 	$scope.lists = $window.wordLists;
+	$scope.words = [];
 	$scope.activeTab = 'practice';
 	$scope.selectedLists = [];
 	$scope.selectedWords = [];
@@ -12,6 +13,7 @@ function AppCtrl($scope, $window) {
 			angular.forEach(list.words, function(word) {
 				word.list = list;
 				word.oggUrl = word.url.replace(/\.m4a$/, '.ogg');
+				$scope.words.push(word);
 			});
 		});
 	}
@@ -82,6 +84,10 @@ function AppCtrl($scope, $window) {
 			$scope.$digest();
 			$('#player').load();
 		}, 10);
+	}
+
+	$scope.isPresent = function(str) {
+		return str != undefined && str != '';
 	}
 
 	indexAllWords();
