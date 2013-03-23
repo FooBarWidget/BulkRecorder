@@ -21,7 +21,7 @@
 						<li ng-repeat="list in lists">
 							<label>
 								<input type="checkbox" ng-model="list.selected" ng-change="listSelectionChanged()">
-								<span>{{list.name}}</span>
+								{{list.name}}
 							</label>
 						</li>
 					</ul>
@@ -43,7 +43,7 @@
 						<div ng-show="dictationSession.ended()">
 							<p>Covered {{dictationSession.dictatedWords.length}} words in this practice session:</p>
 							<p>
-								<a ng-repeat="word in dictationSession.dictatedWords" class="word color-on-hover" ng-click="playAudio(word.url)">
+								<a ng-repeat="word in dictationSession.dictatedWords" class="word color-on-hover" ng-click="speakWord(word)">
 									<span>{{word.text}}</span>
 								</a>
 							</p>
@@ -51,12 +51,7 @@
 						</div>
 						<div id="running_dictation_session" ng-show="!dictationSession.ended()">
 							<h1>{{dictationSession.index + 1}} / {{dictationSession.total()}}</h1>
-							<div>
-								<audio id="player" controls autoplay preload>
-									<source src="{{dictationSession.getCurrentWord().oggUrl}}" type="audio/ogg">
-									<source src="{{dictationSession.getCurrentWord().url}}" type="audio/aac">
-								</audio>
-							</div>
+							<div id="player"></div>
 							<p style="margin-top: 1.5em">
 								<button class="btn" ng-click="endDictation()">End practice</button>
 								<button class="btn" ng-click="dictationSession.showCurrentWord(true)">Show word</button>
@@ -76,14 +71,14 @@
 							<p><input ng-model="search.text" style="width: 100%" autofocus placeholder="Enter word to search..."></p>
 
 							<div ng-show="isPresent(search.text)">
-								<a ng-repeat="word in words | filter:search" class="word color-on-hover" ng-click="playAudio(word.url)">
+								<a ng-repeat="word in words | filter:search" class="word color-on-hover" on-touch="speakWord(word)">
 									<span>{{word.text}}</span>
 								</a>
 							</div>
 							<div ng-show="!isPresent(search.text)">
 								<div ng-repeat="list in selectedLists">
 									<h4>{{list.name}} <span class="close" ng-click="deselectList(list)">&times;</span></h4>
-									<a ng-repeat="word in list.words" class="word color-on-hover" ng-click="playAudio(word.url)">
+									<a ng-repeat="word in list.words" class="word color-on-hover" on-touch="speakWord(word)">
 										<span>{{word.text}}</span>
 									</a>
 								</div>
@@ -100,6 +95,7 @@
 	</div>
 	<script src="js/angular.min.js"></script>
 	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/touchable.js"></script>
 	<script src="js/dictation.js"></script>
 	<script src="js/words.js"></script>
 </body>
