@@ -386,10 +386,13 @@ OSStatus AudioInputProc( void* inRefCon, AudioUnitRenderActionFlags* ioActionFla
 	err = ExtAudioFileCreateWithURL((__bridge CFURLRef) outputURL, fileFormat, &desiredOutputFormat, NULL, 0, &outputAudioFile);
 	if( err != noErr )
 	{
-		char formatID[5];
-		*(UInt32 *)formatID = CFSwapInt32HostToBig(err);
-		formatID[4] = '\0';
-		return [NSString stringWithFormat: @"Could not create the audio file (ID=%d/'%-4.4s')",err, formatID];
+		union {
+			char formatID[5];
+			UInt32 formatInt;
+		} u;
+		u.formatInt = CFSwapInt32HostToBig(err);
+		u.formatID[4] = '\0';
+		return [NSString stringWithFormat: @"Could not create the audio file (ID=%d/'%-4.4s')",err, u.formatID];
 	}
 
 	// Inform the file what format the data is we're going to give it, should be pcm
@@ -397,10 +400,13 @@ OSStatus AudioInputProc( void* inRefCon, AudioUnitRenderActionFlags* ioActionFla
 	err = ExtAudioFileSetProperty( outputAudioFile, kExtAudioFileProperty_ClientDataFormat, sizeof(AudioStreamBasicDescription), &actualOutputFormat);
 	if( err != noErr )
 	{
-		char formatID[5];
-		*(UInt32 *)formatID = CFSwapInt32HostToBig(err);
-		formatID[4] = '\0';
-		return [NSString stringWithFormat: @"Could not set up data format for output file (ID=%d/'%-4.4s')",err, formatID];
+		union {
+			char formatID[5];
+			UInt32 formatInt;
+		} u;
+		u.formatInt = CFSwapInt32HostToBig(err);
+		u.formatID[4] = '\0';
+		return [NSString stringWithFormat: @"Could not set up data format for output file (ID=%d/'%-4.4s')",err, u.formatID];
 	}
 
 	// If we're recording from a mono source, setup a simple channel map to split to stereo
@@ -422,10 +428,13 @@ OSStatus AudioInputProc( void* inRefCon, AudioUnitRenderActionFlags* ioActionFla
 	err = ExtAudioFileWriteAsync( outputAudioFile, 0, NULL );
 	if( err != noErr )
 	{
-		char formatID[5];
-		*(UInt32 *)formatID = CFSwapInt32HostToBig(err);
-		formatID[4] = '\0';
-		return [NSString stringWithFormat: @"Could not initialize asynchronous writing (ID=%d/'%-4.4s')",err, formatID];
+		union {
+			char formatID[5];
+			UInt32 formatInt;
+		} u;
+		u.formatInt = CFSwapInt32HostToBig(err);
+		u.formatID[4] = '\0';
+		return [NSString stringWithFormat: @"Could not initialize asynchronous writing (ID=%d/'%-4.4s')",err, u.formatID];
 	}
 
 	return nil;
