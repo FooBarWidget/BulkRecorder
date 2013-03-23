@@ -4,23 +4,12 @@ app.directive('onTouch', function() {
   return {
 		restrict: 'A',
 		link: function(scope, elm, attrs) {
-			if ("ontouchstart" in window) {
-				elm.bind('touchend', function(evt) {
-					scope.$apply(function() {
-						scope.$eval(attrs.onTouch);
-					});
+			var $elem = $(elm).Touchable();
+			$elem.bind('tap', function(evt) {
+				scope.$apply(function() {
+					scope.$eval(attrs.onTouch);
 				});
-				elm.bind('click', function(evt) {
-					evt.stopPropagation();
-					evt.preventDefault();
-				});
-			} else {
-				elm.bind('click', function(evt) {
-					scope.$apply(function() {
-						scope.$eval(attrs.onTouch);
-					});
-				});
-			}
+			});
 		}
 	};
 });
