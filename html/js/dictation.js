@@ -72,42 +72,48 @@ function AppCtrl($scope, $window) {
 		$scope.disableDictationButton = words.length == 0;
 	}
 
-	$scope.playAudio = function(url) {
+	$scope.createAudio = function(word) {
+		var audio = $('<audio></audio>');
+		audio.append($('<source>').attr({ src: word.oggUrl, type: 'audio/ogg' }));
+		audio.append($('<source>').attr({ src: word.url, type: 'audio/aac' }));
+		return audio;
+	}
+
+	$scope.speakWord = function(word) {
 		if ($scope.currentAudio) {
 			$scope.currentAudio.pause();
 		}
-		var audio = $('<audio>');
-		var oggUrl = url.replace(/\.aac$/, '.ogg');
-		$('<source>').attr({ src: oggUrl, type: 'audio/ogg' }).appendTo(audio);
-		$('<source>').attr({ src: url, type: 'audio/aac' }).appendTo(audio);
-		$scope.currentAudio = audio[0];
+		$scope.currentAudio = $scope.createAudio(word)[0];
 		$scope.currentAudio.play();
 	}
 
 	$scope.startDictation = function() {
 		$scope.dictationSession = new DictationSession($scope.selectedWords);
 		$scope.dictating = true;
-		$scope.reloadPlayer();
+		$scope.reloadPlayer($scope.dictationSession.getCurrentWord());
 	}
 
 	$scope.stopDictation = function() {
-		delete $scope.dicationSession;
+		delete $scope.dictationSession;
 		$scope.dictating = false;
 	}
 
 	$scope.nextDictationWord = function() {
 		$scope.dictationSession.next();
-		$scope.reloadPlayer();
+		$scope.reloadPlayer($scope.dictationSession.getCurrentWord());
 	}
 
 	$scope.endDictation = function() {
 		$scope.dictationSession.end();
 	}
 
-	$scope.reloadPlayer = function() {
+	$scope.reloadPlayer = function(word) {
+		var audio = $scope.createAudio(word).attr({ controls: true, autoplay: true });
+		$('#player').html('').append(audio);
+		// Autoplay doesn't work on iOS.
+		// Calling play() immediately also doesn't work on iOS.
 		setTimeout(function() {
-			$scope.$digest();
-			$('#player').load();
+			audio[0].play();
 		}, 10);
 	}
 
