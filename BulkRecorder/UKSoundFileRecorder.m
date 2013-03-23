@@ -492,8 +492,18 @@ OSStatus AudioInputProc( void* inRefCon, AudioUnitRenderActionFlags* ioActionFla
 	}
 
 	// Select the default input device
-	param = sizeof(AudioDeviceID);
-	err = AudioHardwareGetProperty( kAudioHardwarePropertyDefaultInputDevice, &param, &inputDeviceID );
+	AudioObjectPropertyAddress property_address = {
+		kAudioHardwarePropertyDefaultInputDevice,  // mSelector
+		kAudioObjectPropertyScopeGlobal,           // mScope
+		kAudioObjectPropertyElementMaster          // mElement
+	};
+	param = sizeof(inputDeviceID);
+	err = AudioObjectGetPropertyData(kAudioObjectSystemObject,
+		&property_address,
+		0,       // inQualifierDataSize
+		NULL,    // inQualifierData
+		&param,
+		&inputDeviceID);
 	if(err != noErr)
 	{
 		[self cleanUp];
