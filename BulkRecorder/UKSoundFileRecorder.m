@@ -367,6 +367,8 @@ OSStatus AudioInputProc( void* inRefCon, AudioUnitRenderActionFlags* ioActionFla
 	AudioConverterRef			conv = NULL;
 	NSString*					outputDirectory = [outputFilePath stringByDeletingLastPathComponent];
 	NSString*					outputFileName = [outputFilePath lastPathComponent];
+	NSString*					outputPath = [NSString stringWithFormat:@"%@/%@", outputDirectory, outputFileName];
+	NSURL*						outputURL = [NSURL fileURLWithPath:outputPath];
 	FSRef						parentDirectory;
 	AudioStreamBasicDescription	desiredOutputFormat;
 	NSString*					fileFormatStr = [outputFormat objectForKey: UKAudioOutputFileType];
@@ -381,7 +383,7 @@ OSStatus AudioInputProc( void* inRefCon, AudioUnitRenderActionFlags* ioActionFla
 		[self cleanUp];
 	
 	// Create new MP4 file (kAudioFileM4AType)
-	err = ExtAudioFileCreateNew( &parentDirectory, (__bridge CFStringRef)outputFileName, fileFormat, &desiredOutputFormat, NULL, &outputAudioFile );
+	err = ExtAudioFileCreateWithURL((__bridge CFURLRef) outputURL, fileFormat, &desiredOutputFormat, NULL, 0, &outputAudioFile);
 	if( err != noErr )
 	{
 		char formatID[5];
