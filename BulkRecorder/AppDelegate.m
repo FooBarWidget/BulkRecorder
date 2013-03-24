@@ -52,7 +52,7 @@
     NSMutableString *filename = [[NSMutableString alloc] initWithString:dir];
     [filename appendString:@"/"];
     [filename appendString:[self.nameField stringValue]];
-    [filename appendString:@".m4a"];
+    [filename appendString:@".aac"];
     
     unlink([filename cStringUsingEncoding:NSUTF8StringEncoding]);
     [recorder setOutputFilePath:filename];
